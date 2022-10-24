@@ -47,7 +47,7 @@ const path = require('path');
     res.send(`try GET /filteredimage?image_url=${image_url}`);
   });
 
-  app.get("/filteredimage/", (req, res) => {
+  app.get("/filteredimage/", (req:express.Request, res:express.Response) => {
     let image_url: string = req.query.image_url;
     filterImageFromURL(image_url).then((response) => {
       if (response == "Error") {
